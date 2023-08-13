@@ -1,0 +1,31 @@
+name: Create release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.8.6
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Run script
+        run: python DL-SCEWIN.py
+
+      - name: Upload to release
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          files: SCEWIN.zip
