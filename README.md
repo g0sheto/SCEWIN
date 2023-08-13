@@ -8,4 +8,4 @@ SCEWIN is a tool to modify hidden BIOS variables however it is exclusively shipp
 
 2. Depending on the type of variable, move the ``*`` to the desired option or change the value
 
-3. Run the ``Ixport.bat`` script to write the configuration in ``BIOSSettings.txt`` to NVRAM
+3. Run the ``Import.bat`` script to write the configuration in ``BIOSSettings.txt`` to NVRAM
